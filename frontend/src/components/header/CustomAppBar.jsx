@@ -73,7 +73,12 @@ const CustomAppBar = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar style={{ padding: "5px" }} {...props} userMenu={<CustomUserMenu />}>
+    <AppBar
+      style={{ padding: "5px" }}
+      {...props}
+      userMenu={<CustomUserMenu />}
+      toolbar={<></>}
+    >
       <IconButton
         edge="start"
         className={classes.menuButton}

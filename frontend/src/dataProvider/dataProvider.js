@@ -1,7 +1,8 @@
 import { fetchUtils } from "react-admin";
 // import { stringify } from "query-string";
 
-const apiUrl = "http://localhost:3100";
+const apiUrl = `${import.meta.env.VITE_REACT_APP_BACKEND_URL}`;
+
 const httpClient = fetchUtils.fetchJson;
 
 const dataProvider = {
@@ -24,7 +25,11 @@ const dataProvider = {
   },
   getOne: (resource, params) => {
     const url = `${apiUrl}/${resource}/${params.id}`;
-    return httpClient(url).then(({ json }) => ({ data: json }));
+    console.log(resource, params);
+
+    return httpClient(url).then(({ json }) => ({
+      data: json,
+    }));
   },
   // Implement other methods (getOne, getMany, create, update, delete)...
 };

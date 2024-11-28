@@ -1,0 +1,39 @@
+.css-fy4ycq-RaLayout-root .RaLayout-content {
+  padding: 0 !important;
+}
+.MuiCardContent-root {
+  padding: 0 !important;
+}
+.statistical {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  * {
+    color: white;
+  }
+  span {
+    display: block;
+  }
+  button {
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bolder;
+    background: #4b5559;
+    border: none;
+    cursor: pointer;
+  }
+  button:disabled {
+    color: #b8c0c4;
+  }
+}
+.leaflet-control-attribution {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .statistical {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
