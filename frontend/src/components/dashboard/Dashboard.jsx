@@ -1,27 +1,86 @@
-import { Card, CardContent, CardHeader } from "@material-ui/core";
+import { Card, CardContent } from "@material-ui/core";
+import "./Dashbord.css";
+import { useState, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import "leaflet/dist/leaflet.css";
+import { useGetList } from "react-admin";
 
-const Dashboard = () => (
-  <Card>
-    <CardHeader title="Welcome to the Admin Dashboard" />
-    <CardContent>
-      <div>
-        <h2>Quick Statistics</h2>
-        {/* Thêm các thành phần thống kê hoặc dữ liệu tại đây */}
-        <p>Total Users: 150</p>
-        <p>Total Posts: 200</p>
-        <p>Monthly Revenue: $5000</p>
-      </div>
-      <div>
-        <h2>Recent Activities</h2>
-        {/* Thêm các thành phần để hiển thị hoạt động gần đây */}
-        <ul>
-          <li>User John Doe posted a new article.</li>
-          <li>Mary updated her profile.</li>
-          <li>New order #12345 has been placed.</li>
-        </ul>
-      </div>
-    </CardContent>
-  </Card>
-);
+const Dashboard = () => {
+  const [position, setPosition] = useState();
+  const [statistical, setStatistical] = useState();
+  const { data } = useGetList("drives");
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setPosition([latitude, longitude]);
+      },
+      (error) => {
+        console.error("Error getting location", error);
+      }
+    );
+    if (data) {
+      const sumTime = data.reduce((cur, e) => cur + e.total_time, 0);
+      const sumDistance = data.reduce((cur, e) => cur + e.distance, 0);
+      setStatistical({
+        time: Math.round(sumTime / 60),
+        distance: Math.round(sumDistance / 1000),
+      });
+    }
+  }, [data]);
+
+  return (
+    <Card style={{ backgroundColor: "initial" }}>
+      <CardContent>
+        <div>
+          {position && (
+            <MapContainer
+              center={position}
+              zoom={17}
+              style={{ height: "300px", width: "100%" }}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+              />
+              <Marker position={position}>
+                <Popup>Your current location</Popup>
+              </Marker>
+            </MapContainer>
+          )}
+          <div className="statistical">
+            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <h3>Demo 3X</h3>
+              {statistical && (
+                <>
+                  <div style={{ textAlign: "center" }}>
+                    <span>{statistical.distance}</span>
+                    <span>kilometers</span>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <span>{data.length}</span>
+                    <span>drives</span>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <span>{statistical.time}</span>
+                    <span>hours</span>
+                  </div>
+                </>
+              )}
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <button>device offline</button>
+              <button disabled>take snapshot</button>
+              <button style={{ padding: "5px 30px" }}>
+                <AccessTimeIcon />
+              </button>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 export default Dashboard;

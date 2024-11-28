@@ -1,14 +1,18 @@
 import { Datagrid, List, TextField } from "react-admin";
+import Dashboard from "./dashboard/Dashboard";
 
-const CustomList = () => {
+const CustomList = (props) => {
   return (
-    <List>
-      <Datagrid>
-        <TextField source="id" />
-        <TextField source="total_time" />
-        <TextField source="distance" />
-      </Datagrid>
-    </List>
+    <>
+      <Dashboard />
+      <List {...props}>
+        <Datagrid>
+          <TextField source="id" />
+          <TextField source="total_time" />
+          <TextField source="distance" />
+        </Datagrid>
+      </List>
+    </>
   );
 };
 

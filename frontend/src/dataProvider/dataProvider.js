@@ -1,7 +1,7 @@
 import { fetchUtils } from "react-admin";
 // import { stringify } from "query-string";
 
-const apiUrl = "http://localhost:3100";
+const apiUrl = `${import.meta.env.VITE_REACT_APP_BACKEND_URL}`;
 const httpClient = fetchUtils.fetchJson;
 
 const dataProvider = {

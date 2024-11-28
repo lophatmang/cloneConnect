@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
   active: {
-    backgroundColor: "#00000040 !important", // Màu nền khi mục menu đang hoạt động
+    backgroundColor: "#000000cf !important", // Màu nền khi mục menu đang hoạt động
   },
   inactive: {
     backgroundColor: "transparent", // Màu nền khi mục menu không hoạt động
@@ -15,7 +15,6 @@ const useStyles = makeStyles({
 const CustomMenu = (props) => {
   const classes = useStyles();
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <Menu {...props}>
       <MenuItemLink
