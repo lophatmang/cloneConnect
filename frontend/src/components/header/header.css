@@ -1,0 +1,38 @@
+.RaAppBar-menuButton {
+  display: none !important;
+}
+.RaSidebar-fixed {
+  background-image: linear-gradient(
+    180deg,
+    #1b2023 0%,
+    #111516 100%
+  ) !important;
+  ul {
+    padding: 0;
+    a {
+      padding: 20px;
+    }
+    a:hover {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+  .RaMenuItemLink-icon {
+    min-width: 10px !important;
+    margin-right: 10px;
+  }
+}
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  padding: 30px 20px !important;
+  a {
+    margin-bottom: 20px;
+  }
+}
+.css-gmup2p-MuiPaper-root-MuiAppBar-root-RaAppBar-root {
+  background-color: #000 !important;
+}
+
+@media screen and (max-width: 800px) {
+  .RaAppBar-menuButton {
+    display: block !important;
+  }
+}

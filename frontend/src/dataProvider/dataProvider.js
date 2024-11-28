@@ -16,7 +16,6 @@ const dataProvider = {
     const pageSize = [(page - 1) * perPage, page * perPage];
     const url = `${apiUrl}/${resource}`;
     return httpClient(url).then(({ json }) => {
-      console.log(pageSize[0], pageSize[1]);
       return {
         data: json.slice(pageSize[0], pageSize[1]),
         total: json.length,
