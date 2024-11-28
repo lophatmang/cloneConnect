@@ -160,5 +160,43 @@
       "title": "doloribus ad provident suscipit at",
       "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
     }
+  ],
+  "drives": [
+    {
+      "id": 1,
+      "profile": "john",
+      "date": "Friday, May 24",
+      "time": "00:14 to 00:23",
+      "total_time": 480,
+      "distance": 5100,
+      "start_area": "Little Italy",
+      "start_city": "San Diego, CA",
+      "end_area": "Old Town",
+      "end_city": "San Diego, CA",
+      "speeds": [
+        20, 25, 30, 40, 40, 40, 50, 50, 50, 70, 70, 25, 30, 40, 40, 40, 50, 50,
+        50, 70, 20, 25, 30, 40, 40, 40, 50, 50, 50, 70, 70, 25, 30, 40, 40, 40,
+        50, 50, 50, 70, 70, 25, 30, 40, 40, 40, 50, 50, 50, 70
+      ]
+    },
+    {
+      "id": 2,
+      "desiredPlaySpeed": 1,
+      "isBufferingVideo": true,
+      "profile": "john",
+      "date": "Friday, May 24",
+      "time": "00:14 to 00:23",
+      "total_time": 480,
+      "distance": 5100,
+      "start_area": "Little Italy",
+      "start_city": "San Diego, CA",
+      "end_area": "Little Italy",
+      "end_city": "San Diego, CA",
+      "speeds": [
+        20, 25, 30, 40, 40, 40, 50, 50, 50, 70, 70, 25, 30, 40, 40, 40, 50, 50,
+        50, 70, 20, 25, 30, 40, 40, 40, 50, 50, 50, 70, 70, 25, 30, 40, 40, 40,
+        50, 50, 50, 70, 70, 25, 30, 40, 40, 40, 50, 50, 50, 70
+      ]
+    }
   ]
 }
