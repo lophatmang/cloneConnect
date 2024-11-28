@@ -38,11 +38,16 @@ const Dashboard = () => {
             <MapContainer
               center={position}
               zoom={17}
-              style={{ height: "300px", width: "100%" }}
+              style={{
+                height: "300px",
+                width: "100%",
+              }}
             >
               <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+                url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token=${
+                  import.meta.env.VITE_REACT_APP_API_KEY
+                }`}
+                attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
               />
               <Marker position={position}>
                 <Popup>Your current location</Popup>

@@ -26,6 +26,9 @@
     color: #b8c0c4;
   }
 }
+.leaflet-control-attribution {
+  display: none;
+}
 
 @media screen and (max-width: 800px) {
   .statistical {
