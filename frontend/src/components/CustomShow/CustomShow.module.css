@@ -1,0 +1,162 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+
+
+/* CONTENT */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3a3a3a;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+.header{
+  display: flex;
+  flex-direction: column ;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.header_actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+/* TIMELINE */
+
+.header_timeline{
+  width: 100%;
+  /* height: 120px; */
+  background-color: #fff;
+}
+
+.header_timeline_segment{
+  width: 100%;
+  height: 20px;
+  background-color: #ccc;
+}
+
+.header_timeline_thumbnails{  
+  width: 100%;
+  height: 75px;
+  background-color: #747474;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_timeline_progress{
+  width: 100%;
+  height: 30px;
+  background-color: #5d3fc7;
+}
+
+
+/* BUTTONS */
+
+.content_buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.content_buttons_group{
+  display: none !important;
+}
+
+
+/* MAIN CONTENT - MAP ANND VIDEO */
+
+.content_main{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.content_main_video{
+  width: 60%;
+  height: 500px;
+  background-color: #fff;
+}
+
+.content_main_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content_main_map{
+  width: 40%;
+  height: 500px;
+  background-color: #fff;
+}
+
+.content_main_map iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Only for screens larger than 1024px, show the buttons to show Video/Map */
+@media screen and (max-width: 1024px) {
+
+  .content_buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .content_buttons_group{
+    display: flex !important;
+  }
+
+  .content_main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content_main_map{
+    width: 100%;
+  }
+  .content_main_video{
+    width: 100%;
+  }
+}
