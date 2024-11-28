@@ -2,10 +2,11 @@ import dataProvider from "./dataProvider/dataProvider";
 
 import { Admin, Resource, Layout } from "react-admin";
 
-import CustomList from "./components/CustomList";
+import CustomList from "./components/CustomList/CustomList.jsx";
 import CustomShow from "./components/CustomShow/CustomShow.jsx";
 import CustomAppBar from "./components/header/CustomAppBar.jsx";
 import CustomMenu from "./components/header/CustomMenu.jsx";
+
 const CustomLayout = (props) => (
   <Layout {...props} appBar={CustomAppBar} menu={CustomMenu} />
 );
