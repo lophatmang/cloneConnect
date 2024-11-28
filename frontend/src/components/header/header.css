@@ -2,6 +2,7 @@
   display: none !important;
 }
 .RaSidebar-fixed {
+  height: 100% !important;
   background-image: linear-gradient(
     180deg,
     #1b2023 0%,
