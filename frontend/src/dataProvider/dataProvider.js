@@ -1,7 +1,7 @@
-import { fetchUtils } from "react-admin";
+import { fetchUtils } from 'react-admin';
 // import { stringify } from "query-string";
 
-const apiUrl = "http://localhost:3100";
+const apiUrl = 'http://localhost:3100';
 const httpClient = fetchUtils.fetchJson;
 
 const dataProvider = {
@@ -19,6 +19,20 @@ const dataProvider = {
       return {
         data: json.slice(pageSize[0], pageSize[1]),
         total: json.length,
+      };
+    });
+  },
+  getOne: (resource, params) => {
+    const url = `${apiUrl}/${resource}`;
+    console.log(resource, params);
+
+    return httpClient(url).then(({ json }) => {
+      console.log(json);
+      const result = json.find((item) => item.id === +params.id);
+      console.log(result);
+
+      return {
+        data: result,
       };
     });
   },
