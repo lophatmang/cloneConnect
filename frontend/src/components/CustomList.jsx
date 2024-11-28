@@ -1,16 +1,15 @@
-import React from 'react'
-import { Datagrid, List, TextField } from 'react-admin'
+import { Datagrid, List, TextField } from "react-admin";
 
 const CustomList = () => {
   return (
     <List>
       <Datagrid>
         <TextField source="id" />
-        <TextField source="title" />
-        <TextField source="body" />
+        <TextField source="total_time" />
+        <TextField source="distance" />
       </Datagrid>
     </List>
-  )
-}
+  );
+};
 
-export default CustomList
+export default CustomList;
