@@ -27,8 +27,6 @@
   flex-direction: column;
   align-items: center;
   background-color: #3a3a3a;
-  padding: 20px;
-  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 100%;
@@ -41,6 +39,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+  padding: 0 5px;
 }
 
 .header_actions{
@@ -61,28 +60,58 @@
 }
 
 .header_timeline_segment{
+  display: flex;
   width: 100%;
-  height: 20px;
+  height: 10px;
   background-color: #ccc;
 }
 
 .header_timeline_thumbnails{  
   width: 100%;
-  height: 75px;
+  height: 25px;
   background-color: #747474;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.header_timeline_thumbnails img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .header_timeline_progress{
   width: 100%;
-  height: 30px;
-  background-color: #5d3fc7;
+  height: 50px;
+  background-color: #41414b;
 }
 
 
 /* BUTTONS */
+
+.header_back-btn,
+.header_close-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s ease-in-out;
+}
+
+.header_back-btn:hover,
+.header_close-btn:hover {
+  cursor: pointer;
+  background-color: #5e5e5e;
+}
+
+.header_back-btn > svg,
+.header_close-btn > svg {
+  color: #d6d6d6;
+  transform: scale(1.4);
+}
 
 .content_buttons{
   display: flex;
@@ -90,6 +119,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 .content_buttons_group{
@@ -101,10 +131,19 @@
 
 .content_main{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.content_main_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   gap: 20px;
 }
 
@@ -131,6 +170,77 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* VIDEO PLAYER */
+
+.video_player{
+  width: 450px;
+  height: 70px;
+  margin: 20px;
+  background-color: black;
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+.video_divider {
+  width: 1px;
+  height: 40px;
+  background-color: #706f6f;
+  margin: 0 10px;
+}
+.video_controls {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.video_btn > svg {
+  transform: scale(2);
+  color: #706f6f;
+  cursor: pointer;
+}
+
+.video_play_btn > svg {
+  color: white !important;
+}
+
+.video_play_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px ;
+}
+
+.video_play_btn:hover {
+  background-color: #4e4e4e;
+  border-radius: 50%;
+}
+.video_time {
+  font-size: 24px;
+}
+
+.video_speed {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.video_speed_increase,
+.video_speed_decrease{
+  max-height: 20px;
+  color: #706f6f;
+}
+
+.video_speed_increase:hover,
+.video_speed_decrease:hover {
+  cursor: pointer;
+}
+
 
 
 /* Only for screens larger than 1024px, show the buttons to show Video/Map */

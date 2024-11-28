@@ -19,7 +19,6 @@ function App() {
         dataProvider={dataProvider}
         layout={CustomLayout}
       >
-        {/* ra-data for development */}
         <Resource name="drives" list={CustomList} show={CustomShow} />
       </Admin>
     </>

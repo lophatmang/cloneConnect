@@ -22,6 +22,10 @@ const dataProvider = {
       };
     });
   },
+  getOne: (resource, params) => {
+    const url = `${apiUrl}/${resource}/${params.id}`;
+    return httpClient(url).then(({ json }) => ({ data: json }));
+  },
   // Implement other methods (getOne, getMany, create, update, delete)...
 };
 
