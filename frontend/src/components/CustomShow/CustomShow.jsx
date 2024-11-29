@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import classes from "./CustomShow.module.css";
 
-import { ButtonGroup, Button, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { Show } from "react-admin";
 
 import Header from "./Header";
@@ -12,31 +12,9 @@ import VideoPlayer from "./VideoPlayer";
 
 const CustomShow = () => {
   const [show, setShow] = React.useState("video");
-  const isMobileScreen = useMediaQuery("(max-width: 1024px)"); //From 1024px and below screen will count as mobile
+  const isMobileScreen = useMediaQuery("(max-width: 1440px)"); //From 1024px and below screen will count as mobile
 
   const videoRef = useRef();
-
-
-  const btnNormal = {
-    bgcolor: "#3a3a3a",
-    color: "#dfdfdf",
-    border: "solid 1px rgba(255, 255, 255, 0.1) !important",
-    "&:hover": {
-      bgcolor: "#3a3a3a",
-      color: "#dfdfdf",
-    },
-  };
-
-  const btnActive = {
-    bgcolor: "#3a3a3a",
-    color: "#ffffff",
-    fontWeight: "bold",
-    border: "solid 1px rgba(255, 255, 255, 0.1) !important",
-    "&:hover": {
-      bgcolor: "#3a3a3a",
-      color: "#dfdfdf",
-    },
-  };
 
   const showMap = () => {
     setShow("map");
@@ -52,29 +30,15 @@ const CustomShow = () => {
         <Header />
 
         <div className={classes.content_buttons}>
-          <ButtonGroup
-            className={classes.content_buttons_group}
-            variant="contained"
-            color="primary"
-          >
-            <Button
-              onClick={showVideo}
-              sx={show === "video" ? btnActive : btnNormal}
-            >
-              Video
-            </Button>
-            <Button
-              onClick={showMap}
-              sx={show === "map" ? btnActive : btnNormal}
-            >
-              Map
-            </Button>
-          </ButtonGroup>
+          <div className={`${classes.content_buttons_group} ${classes.content_buttons_group_left}`} color="primary">
+            <button className={show === "map" ? classes.inactive : ""} onClick={showVideo}>Video</button>
+            <button className={show === "video" ? classes.inactive : ""} onClick={showMap}>Map</button>
+          </div>
 
-          <ButtonGroup variant="contained" color="primary">
-            <Button sx={btnNormal}>Files</Button>
-            <Button sx={btnNormal}>More info</Button>
-          </ButtonGroup>
+          <div className={`${classes.content_buttons_group} `} color="primary">
+            <button>Files</button>
+            <button>More info</button>
+          </div>
         </div>
 
         <div className={classes.content_main}>
