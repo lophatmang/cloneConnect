@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 export const PostFilter = (props) => {
   const ref = useRef(null);
 
-  // useEffect dde load lai cac hanh dong khi trang dc tai
   useEffect(() => {
     document.addEventListener(
       "keydown",
@@ -23,6 +22,7 @@ export const PostFilter = (props) => {
       true
     );
   }, []);
+
   return (
     <div id="myModal" className={classes.modal}>
       <div ref={ref} className={classes["modal-content"]}>
