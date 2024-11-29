@@ -8,10 +8,11 @@ import { PostFilter } from "../listFilters/ListFilters";
 import { useState } from "react";
 
 const CustomList = (props) => {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
-      <Dashboard setShow={setShow} />
+      <Dashboard setShowModal={setShowModal} />
       <List
         sx={{
           // background: '#1B2022',
@@ -24,7 +25,7 @@ const CustomList = (props) => {
             borderTop: "1px solid rgba(255, 255, 255, 0.1);",
           },
         }}
-        filters={show && <PostFilter setShow={setShow} />}
+        filters={showModal && <PostFilter setShowModal={setShowModal} />}
         {...props}
       >
         <Datagrid

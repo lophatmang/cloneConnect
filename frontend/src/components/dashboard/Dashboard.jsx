@@ -78,7 +78,7 @@ const Dashboard = (props) => {
               <button>device offline</button>
               <button disabled>take snapshot</button>
               <button
-                onClick={() => props.setShow(true)}
+                onClick={() => props.setShowModal(true)}
                 style={{ padding: "5px 30px", backgroundColor: "#fff" }}
               >
                 <AccessTimeIcon />

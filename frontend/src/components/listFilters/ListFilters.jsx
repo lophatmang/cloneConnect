@@ -3,34 +3,37 @@ import classes from "./ListFilters.module.css";
 import { useEffect, useRef } from "react";
 
 export function PostFilter(props) {
-  const ref = useRef(null);
+  const refShow = useRef();
 
   useEffect(() => {
     document.addEventListener(
       "keydown",
       (e) => {
-        if (e.key === "Escape") props.setShow(false);
+        if (e.key === "Escape") props.setShowModal(false);
       },
       true
     );
     // document.addEventListener(
     //   "click",
     //   (e) => {
-    //     if (ref.current && !ref.current.contains(e.target))
-    //       props.setShow(false);
+    //     if (refShow.current && !refShow.current.contains(e.target))
+    //       props.setShowModal(false);
     //   },
     //   true
     // );
   }, []);
 
   return (
-    <div id="myModal" className={classes.modal}>
-      <div ref={ref} className={classes["modal-content"]}>
+    <div className={classes.modal}>
+      <div ref={refShow} className={classes.modalContent}>
         <Filter {...props}>
           <DateInput label="Từ ngày" source="dateStart" alwaysOn />
           <DateInput label="Đến ngày" source="dateEnd" alwaysOn />
         </Filter>
-        <button onClick={() => props.setShow(false)} className={classes.close}>
+        <button
+          onClick={() => props.setShowModal(false)}
+          className={classes.close}
+        >
           CLOSE
         </button>
       </div>
