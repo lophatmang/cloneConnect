@@ -13,15 +13,15 @@ export function PostFilter(props) {
       },
       true
     );
-    document.addEventListener(
-      "click",
-      (e) => {
-        if (refShow.current && !refShow.current.contains(e.target))
-          // props.setShowModal(false);
-          console.log(refShow.current);
-      },
-      true
-    );
+    // document.addEventListener(
+    //   "click",
+    //   (e) => {
+    //     if (refShow.current && !refShow.current.contains(e.target))
+    //       // props.setShowModal(false);
+    //       console.log(refShow.current);
+    //   },
+    //   true
+    // );
   }, []);
 
   return (
