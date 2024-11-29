@@ -1,9 +1,33 @@
-import React from 'react'
+import classes from "./CustomShow.module.css";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ShareIcon from "@mui/icons-material/Share";
+import { useRecordContext } from "react-admin";
 
-const InfoMenu = () => {
+const InfoMenu = ({ toggleInfoMenu }) => {
+  const record = useRecordContext();
+
   return (
-    <div>InfoMenu</div>
-  )
-}
+    <ul className={`${classes.content_menu} ${classes.content_menu_info}`}>
+      <li
+        className={classes.content_menu_item}
+        onClick={() => {
+          navigator.clipboard.writeText(record.id);
+          toggleInfoMenu();
+        }}
+      >
+        <code id="deviceId" className={classes.content_menu_info_code}>
+          {record.id}
+        </code>
+        <ContentCopyIcon />
+      </li>
+      <li className={classes.content_menu_item}>
+        <span>Share this route</span>
+        <ShareIcon />
+      </li>
+      <div className={classes.content_menu_divider}></div>
+      <li className={classes.content_menu_item}>View in useradmin</li>
+    </ul>
+  );
+};
 
-export default InfoMenu
+export default InfoMenu;

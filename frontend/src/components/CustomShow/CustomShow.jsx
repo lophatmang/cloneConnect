@@ -1,24 +1,27 @@
 import React, { useRef } from "react";
-
-import classes from "./CustomShow.module.css";
-
 import { useMediaQuery } from "@mui/material";
 import { Show } from "react-admin";
+import { useOnClickOutSide } from "../../hooks/useOnClickOutSide";
+
+import classes from "./CustomShow.module.css";
 
 import Header from "./Header";
 import Video from "./Video";
 import Map from "./Map";
 import VideoPlayer from "./VideoPlayer";
 import FilesMenu from "./FilesMenu";
-import { useOnClickOutSide } from "../../hooks/useOnClickOutSide";
+import InfoMenu from "./InfoMenu";
 
 const CustomShow = () => {
   const [show, setShow] = React.useState("video");
   const [showFilesMenu, setShowFilesMenu] = React.useState(false);
+  const [showInfoMenu, setShowInfoMenu] = React.useState(false);
+
   const isMobileScreen = useMediaQuery("(max-width: 1440px)"); //From 1024px and below screen will count as mobile
 
   const videoRef = useRef();
   const filesMenuRef = useRef();
+  const infoMenuRef = useRef();
 
   const showMap = () => {
     setShow("map");
@@ -31,13 +34,17 @@ const CustomShow = () => {
   const toggleFilesMenu = () => {
     setShowFilesMenu(!showFilesMenu);
   };
+  const toggleInfoMenu = () => {
+    setShowInfoMenu(!showInfoMenu);
+  };
 
   useOnClickOutSide(filesMenuRef, () => toggleFilesMenu());
+  useOnClickOutSide(infoMenuRef, () => toggleInfoMenu());
 
   return (
     <Show>
       <div className={classes.content}>
-        <Header />
+        <Header videoRef={videoRef}/>
 
         <div className={classes.content_buttons}>
           <div
@@ -59,13 +66,28 @@ const CustomShow = () => {
           </div>
 
           <div className={`${classes.content_buttons_group} `} color="primary">
-            <button className={classes.content_buttons_files} onClick={toggleFilesMenu}>
+            <button
+              className={classes.content_buttons_files}
+              onClick={() => setShowFilesMenu(true)}
+            >
               Files
-              {showFilesMenu && <div ref={filesMenuRef}>
-                <FilesMenu />
-              </div>}
+              {showFilesMenu && (
+                <div ref={filesMenuRef}>
+                  <FilesMenu />
+                </div>
+              )}
             </button>
-            <button>More info</button>
+            <button
+              className={classes.content_buttons_info}
+              onClick={() => setShowInfoMenu(true)}
+            >
+              More info
+              {showInfoMenu && (
+                <div ref={infoMenuRef}>
+                  <InfoMenu toggleInfoMenu={toggleInfoMenu} />
+                </div>
+              )}
+            </button>
           </div>
         </div>
 
