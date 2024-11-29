@@ -13,14 +13,14 @@ export function PostFilter(props) {
       },
       true
     );
-    document.addEventListener(
-      "click",
-      (e) => {
-        if (ref.current && !ref.current.contains(e.target))
-          props.setShow(false);
-      },
-      true
-    );
+    // document.addEventListener(
+    //   "click",
+    //   (e) => {
+    //     if (ref.current && !ref.current.contains(e.target))
+    //       props.setShow(false);
+    //   },
+    //   true
+    // );
   }, []);
 
   return (
