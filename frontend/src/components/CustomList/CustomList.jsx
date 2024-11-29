@@ -7,7 +7,7 @@ import Dashboard from "../dashboard/Dashboard";
 import { PostFilter } from "../listFilters/ListFilters";
 import { useState } from "react";
 
-const CustomList = () => {
+const CustomList = (props) => {
   const [show, setShow] = useState(false);
   return (
     <>
@@ -25,6 +25,7 @@ const CustomList = () => {
           },
         }}
         filters={show && <PostFilter setShow={setShow} />}
+        {...props}
       >
         <Datagrid
           isRowSelectable={() => false}
