@@ -4,18 +4,20 @@ import {
   List,
   TextField,
   WrapperField,
-} from 'react-admin';
-import DriveThumbField from './DriveThumbField';
-import DriveSpeedField from './DriveSpeedField';
+} from "react-admin";
+import DriveThumbField from "./DriveThumbField";
+import DriveSpeedField from "./DriveSpeedField";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-} from '@mui/material';
-import Dashboard from '../dashboard/Dashboard';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+} from "@mui/material";
+import Dashboard from "../dashboard/Dashboard";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import { PostFilter } from "../listFilters/ListFilters";
+import { useState } from "react";
 const DatagridHeader = ({ children }) => {
   <TableHead>
     <TableRow>
@@ -29,41 +31,42 @@ const DatagridHeader = ({ children }) => {
     </TableRow>
   </TableHead>;
 };
-const CustomList = () => {
+const CustomList = (props) => {
+  const [show, setShow] = useState(false);
+
   return (
     <>
-      <Dashboard />
+      <Dashboard setShow={setShow} />
       <List
         sx={{
           // background: '#1B2022',
-          padding: '0',
-          '& .RaList-actions': {
-            display: 'none',
-          },
-          '& .RaList-content': {
-            backgroundColor: '#1B2022',
-            backgroundImage: 'none',
+          padding: "0",
+          "& .RaList-content": {
+            backgroundColor: "#1B2022",
+            backgroundImage: "none",
 
             opacity: 1,
-            borderTop: '1px solid rgba(255, 255, 255, 0.1);',
+            borderTop: "1px solid rgba(255, 255, 255, 0.1);",
           },
         }}
+        filters={show && <PostFilter setShow={setShow} />}
+        {...props}
       >
         <Datagrid
           header={<DatagridHeader />}
           isRowSelectable={() => false}
           bulkActionButtons={false}
           sx={{
-            '& .RaDatagrid-row': {
-              display: 'block',
-              margin: '16px',
-              background: 'linear-gradient(to top, #1A1E20FF, #2E363A)',
-              borderRadius: '8px',
-              overflow: 'hidden',
+            "& .RaDatagrid-row": {
+              display: "block",
+              margin: "16px",
+              background: "linear-gradient(to top, #1A1E20FF, #2E363A)",
+              borderRadius: "8px",
+              overflow: "hidden",
               // borderBottom: 'none',
             },
-            '& .RaDatagrid-rowCell': {
-              borderBottom: 'none',
+            "& .RaDatagrid-rowCell": {
+              borderBottom: "none",
               padding: 0,
             },
           }}
@@ -76,44 +79,44 @@ const CustomList = () => {
             >
               <TableRow
                 sx={{
-                  '& .MuiTableCell-root': {
-                    padding: '18px 32px',
+                  "& .MuiTableCell-root": {
+                    padding: "18px 32px",
                   },
                 }}
               >
                 <TableCell key={Math.random(20)}>
                   <WrapperField>
                     <TextField source="date" /> {<br />}
-                    <TextField source="time" style={{ color: '#ccc' }} />
+                    <TextField source="time" style={{ color: "#ccc" }} />
                   </WrapperField>
                 </TableCell>
                 <TableCell>
                   <WrapperField>
                     <FunctionField
                       render={(record) => `${record.total_time / 60} min`}
-                    />{' '}
+                    />{" "}
                     {<br />}
                     <FunctionField
                       render={(record) => `${record.distance / 1000} km`}
-                      sx={{ color: '#ccc' }}
+                      sx={{ color: "#ccc" }}
                     />
                   </WrapperField>
                 </TableCell>
                 <TableCell>
                   <WrapperField>
                     <TextField source="start_area" /> {<br />}
-                    <TextField source="start_city" style={{ color: '#ccc' }} />
+                    <TextField source="start_city" style={{ color: "#ccc" }} />
                   </WrapperField>
                 </TableCell>
                 <TableCell>
                   <WrapperField>
                     <TextField source="end_area" /> {<br />}
-                    <TextField source="end_city" style={{ color: '#ccc' }} />
+                    <TextField source="end_city" style={{ color: "#ccc" }} />
                   </WrapperField>
                 </TableCell>
                 <TableCell
                   sx={{
-                    '&.MuiTableCell-body': {
+                    "&.MuiTableCell-body": {
                       padding: 0,
                     },
                   }}

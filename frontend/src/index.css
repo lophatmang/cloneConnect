@@ -5,3 +5,12 @@ main {
 .css-znuayl-MuiDrawer-docked-RaSidebar-root .MuiPaper-root {
   width: 0 !important;
 }
+.css-yubl5z-MuiToolbar-root-RaTopToolbar-root {
+  display: none !important;
+}
+
+.css-18hcsan-RaFilterForm-root {
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 20px;
+}

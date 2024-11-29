@@ -6,7 +6,7 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import "leaflet/dist/leaflet.css";
 import { useGetList } from "react-admin";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [position, setPosition] = useState();
   const [statistical, setStatistical] = useState();
   const { data } = useGetList("drives");
@@ -31,7 +31,7 @@ const Dashboard = () => {
   }, [data]);
 
   return (
-    <Card style={{ backgroundColor: "initial" }}>
+    <Card style={{ backgroundColor: "initial", zIndex: "0" }}>
       <CardContent>
         <div>
           {position && (
@@ -77,7 +77,10 @@ const Dashboard = () => {
             <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
               <button>device offline</button>
               <button disabled>take snapshot</button>
-              <button style={{ padding: "5px 30px", backgroundColor: "#fff" }}>
+              <button
+                onClick={() => props.setShow(true)}
+                style={{ padding: "5px 30px", backgroundColor: "#fff" }}
+              >
                 <AccessTimeIcon />
               </button>
             </div>
