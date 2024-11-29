@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 main {
   margin-top: 20px;
 }
 .css-1h6y07d-MuiList-root-RaMenu-root.RaMenu-closed,
 .css-znuayl-MuiDrawer-docked-RaSidebar-root .MuiPaper-root {
   width: 0 !important;
+}
+
+* {
+  font-family: 'Inter', sans-serif !important;
 }

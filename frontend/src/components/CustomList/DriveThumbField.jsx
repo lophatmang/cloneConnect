@@ -9,6 +9,7 @@ const DriveThumbField = ({ col }) => {
       direction={'row'}
       sx={{
         padding: 0,
+        width: '100%',
         '& .MuiImageList-standard': {
           gap: '0!important',
         },
@@ -22,10 +23,17 @@ const DriveThumbField = ({ col }) => {
         }}
         variant="standard"
         cols={col}
-        rowHeight={15}
       >
         {images.map((item, index) => (
-          <ImageListItem key={index}>
+          <ImageListItem
+            key={index}
+            sx={{
+              overflow: 'hidden',
+              '& .MuiImageListItem-img': {
+                height: '100%',
+              },
+            }}
+          >
             <img src={item} loading="lazy" />
           </ImageListItem>
         ))}
