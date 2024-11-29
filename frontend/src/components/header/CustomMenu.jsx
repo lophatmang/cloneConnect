@@ -1,6 +1,7 @@
 import { MenuItemLink, Menu } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -25,6 +26,16 @@ const CustomMenu = (props) => {
         }
         className={
           location.pathname === "/drives" ? classes.active : classes.inactive
+        }
+      />
+      <MenuItemLink
+        to="#"
+        primaryText="Add new device"
+        leftIcon={
+          <ControlPointIcon style={{ width: "30px", color: "#4b5559" }} />
+        }
+        className={
+          location.pathname === "#" ? classes.active : classes.inactive
         }
       />
     </Menu>

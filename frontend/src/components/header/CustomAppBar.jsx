@@ -60,10 +60,10 @@ const CustomUserMenu = (props) => {
       </p>
       <MenuItemLink
         to="#"
+        style={{ marginBottom: "10px" }}
         primaryText="Manage Account"
         leftIcon={<SettingsIcon />}
       />
-      <br />
       <MenuItemLink to="#" primaryText="Log Out" leftIcon={<ExitToApp />} />
     </UserMenu>
   );
