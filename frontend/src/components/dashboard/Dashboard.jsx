@@ -10,6 +10,7 @@ const Dashboard = (props) => {
   const [position, setPosition] = useState();
   const [statistical, setStatistical] = useState();
   const { data } = useGetList("drives");
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {

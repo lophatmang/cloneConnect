@@ -18,16 +18,14 @@ function App() {
   };
   localStorage.setItem("RaStore.drives.listParams", JSON.stringify(localData));
   return (
-    <>
-      <Admin
-        defaultTheme={defaultDarkTheme}
-        lightTheme={defaultDarkTheme}
-        dataProvider={dataProvider}
-        layout={CustomLayout}
-      >
-        <Resource name="drives" list={CustomList} show={CustomShow} />
-      </Admin>
-    </>
+    <Admin
+      defaultTheme={defaultDarkTheme}
+      lightTheme={defaultDarkTheme}
+      dataProvider={dataProvider}
+      layout={CustomLayout}
+    >
+      <Resource name="drives" list={CustomList} show={CustomShow} />
+    </Admin>
   );
 }
 
