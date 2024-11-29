@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles({
   active: {
-    backgroundColor: "#000000cf !important", // Màu nền khi mục menu đang hoạt động
+    backgroundColor: "#00000042 !important", // Màu nền khi mục menu đang hoạt động
   },
   inactive: {
     backgroundColor: "transparent", // Màu nền khi mục menu không hoạt động

@@ -11,10 +11,10 @@
   ul {
     padding: 0;
     a {
-      padding: 30px;
+      padding: 20px;
     }
     a:hover {
-      background-color: #000000cf;
+      background-color: #00000042;
     }
   }
   .RaMenuItemLink-icon {
