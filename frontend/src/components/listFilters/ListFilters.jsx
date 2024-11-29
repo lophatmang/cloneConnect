@@ -2,7 +2,7 @@ import { DateInput, Filter } from "react-admin";
 import classes from "./ListFilters.module.css";
 import { useEffect, useRef } from "react";
 
-export const PostFilter = (props) => {
+export function PostFilter(props) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ export const PostFilter = (props) => {
       </div>
     </div>
   );
-};
+}
