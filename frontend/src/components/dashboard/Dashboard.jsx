@@ -77,7 +77,7 @@ const Dashboard = () => {
             <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
               <button>device offline</button>
               <button disabled>take snapshot</button>
-              <button style={{ padding: "5px 30px" }}>
+              <button style={{ padding: "5px 30px", backgroundColor: "#fff" }}>
                 <AccessTimeIcon />
               </button>
             </div>
