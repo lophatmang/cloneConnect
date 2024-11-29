@@ -54,6 +54,9 @@ const Video = forwardRef( function Video(props, ref) {
       if(videoElementRef.current.paused) {
         videoElementRef.current.play();
       }
+    },
+    getDuration: () => {
+      return videoElementRef.current.duration;
     }
   }));
 

@@ -6,7 +6,7 @@ import VideoProgressBar from "./VideoProgressBar";
 import { ArrowBack } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({videoRef}) => {
   const record = useRecordContext();
 
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const Header = () => {
           })}
         </div>
         {/* HEADER TIMELINE PROGRESS */}
-        <VideoProgressBar />
+        <VideoProgressBar videoRef={videoRef} />
       </div>
     </div>
   );
