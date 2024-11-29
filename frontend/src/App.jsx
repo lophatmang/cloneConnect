@@ -1,6 +1,6 @@
 import dataProvider from "./dataProvider/dataProvider";
 
-import { Admin, Resource, Layout } from "react-admin";
+import { Admin, Resource, Layout, defaultDarkTheme } from "react-admin";
 
 import CustomList from "./components/CustomList/CustomList.jsx";
 import CustomShow from "./components/CustomShow/CustomShow.jsx";
@@ -12,10 +12,16 @@ const CustomLayout = (props) => (
 );
 
 function App() {
+  const localData = {
+    ...JSON.parse(localStorage.getItem("RaStore.drives.listParams")),
+    filter: {},
+  };
+  localStorage.setItem("RaStore.drives.listParams", JSON.stringify(localData));
   return (
     <>
       <Admin
-        defaultTheme="dark"
+        defaultTheme={defaultDarkTheme}
+        lightTheme={defaultDarkTheme}
         dataProvider={dataProvider}
         layout={CustomLayout}
       >

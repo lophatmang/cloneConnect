@@ -5,12 +5,12 @@
   padding: 0 !important;
 }
 .statistical {
-  padding: 10px 20px;
+  padding: 8px 36px 0;
   display: flex;
   justify-content: space-between;
-  * {
-    color: white;
-  }
+  background-color: #1b2022;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
   span {
     display: block;
   }
@@ -21,6 +21,9 @@
     background: #4b5559;
     border: none;
     cursor: pointer;
+    svg {
+      color: #000;
+    }
   }
   button:disabled {
     color: #b8c0c4;
