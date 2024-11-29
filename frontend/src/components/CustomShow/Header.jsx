@@ -24,6 +24,11 @@ const Header = () => {
     return "linear-gradient(to top, #0E4A27FF, #197E43FF)";
   };
 
+  const convertToLocalDate = (date) => {
+    // Convert to Fri May 24 
+    return new Date(date).toDateString().slice(0,11);
+  };
+
   return (
     <div className={classes.header}>
       {/* HEADER ACTIONS */}
@@ -32,9 +37,9 @@ const Header = () => {
           <ArrowBack />
         </div>
         {/* HEADER DATE + TIME */}
-        <h2>
-          {record.date} {record.time}
-        </h2>
+        <h3>
+          {convertToLocalDate(record.date)}  @ {record.time}
+        </h3>
         <div className={classes["header_close-btn"]} onClick={navigateToList}>
           <CloseIcon />
         </div>

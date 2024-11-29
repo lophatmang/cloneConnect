@@ -68,7 +68,7 @@ const VideoPlayer = ({ videoRef }) => {
             videoRef.current?.replay10s();
           }}
         >
-          <Replay10 />
+          <Replay10 fontSize="small" />
         </div>
         <div className={classes.video_divider}></div>
         <div
@@ -77,7 +77,7 @@ const VideoPlayer = ({ videoRef }) => {
             videoRef.current?.forward10s();
           }}
         >
-          <Forward10 />
+          <Forward10 fontSize="small" />
         </div>
         <div className={classes.video_divider}></div>
       </div>
@@ -89,7 +89,7 @@ const VideoPlayer = ({ videoRef }) => {
           className={classes.video_speed_increase}
           onClick={() => handleBackRateChange("increase")}
         >
-          <KeyboardArrowUp />
+          <KeyboardArrowUp fontSize="small" />
         </div>
 
         {/* VIDEO SPEED VALUE */}
@@ -100,7 +100,7 @@ const VideoPlayer = ({ videoRef }) => {
           className={classes.video_speed_decrease}
           onClick={() => handleBackRateChange("decrease")}
         >
-          <KeyboardArrowDown />
+          <KeyboardArrowDown fontSize="small" />
         </div>
       </div>
       {/* VIDEO PLAY/PAUSE BUTTON */}
