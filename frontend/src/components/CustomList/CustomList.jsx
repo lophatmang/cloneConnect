@@ -1,27 +1,36 @@
-import { Datagrid, FunctionField, List, TextField } from "react-admin";
-import DriveThumbField from "./DriveThumbField";
-import DriveSpeedField from "./DriveSpeedField";
-import { Box, Table, TableBody, TableCell, TableRow } from "@mui/material";
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-import Dashboard from "../dashboard/Dashboard";
-import { PostFilter } from "../listFilters/ListFilters";
-import { useState } from "react";
+import { Datagrid, FunctionField, List, TextField } from 'react-admin';
+import DriveThumbField from './DriveThumbField';
+import DriveSpeedField from './DriveSpeedField';
+import { Box, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import Dashboard from '../dashboard/Dashboard';
+import { PostFilter } from '../listFilters/ListFilters';
+import { useState } from 'react';
+import dayjs from 'dayjs';
 
 const CustomList = (props) => {
   const [show, setShow] = useState(false);
+  const dateFormat = (date) => {
+    const newDate = new Date(date);
+    const dateFormat = 'dddd, MMM D';
+    const startDateObj = dayjs(newDate);
+    const startDate = startDateObj.format(dateFormat);
+
+    return startDate;
+  };
   return (
     <>
       <Dashboard setShow={setShow} />
       <List
         sx={{
           // background: '#1B2022',
-          padding: "0",
-          "& .RaList-content": {
-            backgroundColor: "#1B2022",
-            backgroundImage: "none",
+          padding: '0',
+          '& .RaList-content': {
+            backgroundColor: '#1B2022',
+            backgroundImage: 'none',
 
             opacity: 1,
-            borderTop: "1px solid rgba(255, 255, 255, 0.1);",
+            borderTop: '1px solid rgba(255, 255, 255, 0.1);',
           },
         }}
         filters={show && <PostFilter setShow={setShow} />}
@@ -31,22 +40,22 @@ const CustomList = (props) => {
           isRowSelectable={() => false}
           bulkActionButtons={false}
           sx={{
-            "& .RaDatagrid-thead": {
-              display: "none",
+            '& .RaDatagrid-thead': {
+              display: 'none',
             },
-            "& .RaDatagrid-row": {
-              display: "block",
-              margin: "16px",
-              background: "linear-gradient(to top, #1A1E20FF, #2E363A)",
-              borderRadius: "8px",
-              width: "100%",
-              overflow: "hidden",
+            '& .RaDatagrid-row': {
+              display: 'block',
+              margin: '16px',
+              background: 'linear-gradient(to top, #1A1E20FF, #2E363A)',
+              borderRadius: '8px',
+              width: '100%',
+              overflow: 'hidden',
               // borderBottom: 'none',
             },
-            "& .RaDatagrid-rowCell": {
-              borderBottom: "none",
-              display: "block",
-              width: "100% !important",
+            '& .RaDatagrid-rowCell': {
+              borderBottom: 'none',
+              display: 'block',
+              width: '100% !important',
 
               padding: 0,
             },
@@ -60,20 +69,24 @@ const CustomList = (props) => {
             >
               <TableRow
                 sx={{
-                  "& .MuiTableCell-root": {
-                    padding: "18px 32px",
+                  '& .MuiTableCell-root': {
+                    padding: '18px 32px',
                   },
-                  "& .MuiBox-root": {
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
+                  '& .MuiBox-root': {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
                   },
                 }}
               >
                 <TableCell key={Math.random(20)}>
                   <Box>
-                    <TextField source="date" sx={{ fontWeight: "bold" }} />
+                    <FunctionField
+                      source="date"
+                      render={(record) => `${dateFormat(record.date)}`}
+                      sx={{ fontWeight: 'bold' }}
+                    />
                     <TextField source="time" />
                   </Box>
                 </TableCell>
@@ -81,8 +94,8 @@ const CustomList = (props) => {
                   <Box>
                     <FunctionField
                       render={(record) => `${record.total_time / 60} min`}
-                      sx={{ fontWeight: "bold" }}
-                    />{" "}
+                      sx={{ fontWeight: 'bold' }}
+                    />{' '}
                     <FunctionField
                       render={(record) => `${record.distance / 1000} km`}
                       // sx={{ color: '#ccc' }}
@@ -93,20 +106,20 @@ const CustomList = (props) => {
                   <Box>
                     <TextField
                       source="start_area"
-                      sx={{ fontWeight: "bold" }}
+                      sx={{ fontWeight: 'bold' }}
                     />
                     <TextField source="start_city" />
                   </Box>
                 </TableCell>
                 <TableCell>
                   <Box>
-                    <TextField source="end_area" sx={{ fontWeight: "bold" }} />
+                    <TextField source="end_area" sx={{ fontWeight: 'bold' }} />
                     <TextField source="end_city" />
                   </Box>
                 </TableCell>
                 <TableCell
                   sx={{
-                    "&.MuiTableCell-body": {
+                    '&.MuiTableCell-body': {
                       padding: 0,
                     },
                   }}
