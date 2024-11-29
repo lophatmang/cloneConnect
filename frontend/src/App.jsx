@@ -1,11 +1,11 @@
-import dataProvider from "./dataProvider/dataProvider";
+import dataProvider from './dataProvider/dataProvider';
 
-import { Admin, Resource, Layout } from "react-admin";
+import { Admin, Resource, Layout, defaultDarkTheme } from 'react-admin';
 
-import CustomList from "./components/CustomList/CustomList.jsx";
-import CustomShow from "./components/CustomShow/CustomShow.jsx";
-import CustomAppBar from "./components/header/CustomAppBar.jsx";
-import CustomMenu from "./components/header/CustomMenu.jsx";
+import CustomList from './components/CustomList/CustomList.jsx';
+import CustomShow from './components/CustomShow/CustomShow.jsx';
+import CustomAppBar from './components/header/CustomAppBar.jsx';
+import CustomMenu from './components/header/CustomMenu.jsx';
 
 const CustomLayout = (props) => (
   <Layout {...props} appBar={CustomAppBar} menu={CustomMenu} />
@@ -15,7 +15,8 @@ function App() {
   return (
     <>
       <Admin
-        defaultTheme="dark"
+        defaultTheme={defaultDarkTheme}
+        lightTheme={defaultDarkTheme}
         dataProvider={dataProvider}
         layout={CustomLayout}
       >
