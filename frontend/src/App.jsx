@@ -17,6 +17,7 @@ function App() {
     filter: {},
   };
   localStorage.setItem("RaStore.drives.listParams", JSON.stringify(localData));
+
   return (
     <Admin
       defaultTheme={defaultDarkTheme}

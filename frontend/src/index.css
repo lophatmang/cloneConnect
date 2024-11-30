@@ -9,7 +9,8 @@ main {
 .css-znuayl-MuiDrawer-docked-RaSidebar-root .MuiPaper-root {
   width: 0 !important;
 }
-.css-yubl5z-MuiToolbar-root-RaTopToolbar-root {
+.css-yubl5z-MuiToolbar-root-RaTopToolbar-root,
+.css-1u2fsit-MuiToolbar-root-RaTopToolbar-root {
   display: none !important;
 }
 
