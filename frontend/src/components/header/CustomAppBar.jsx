@@ -1,106 +1,98 @@
-import { AppBar, UserMenu, MenuItemLink } from "react-admin";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import { ExitToApp, Settings as SettingsIcon } from "@material-ui/icons";
-import { IconButton } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import "./header.css";
+import { AppBar, UserMenu, MenuItemLink } from 'react-admin';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Avatar, Box, IconButton, Typography } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
+// import Avatar from "@material-ui/core/Avatar";
+import './header.css';
+
+const styles = {
   title: {
     flex: 1,
-    textOverflow: "ellipsis",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    fontWeight: 'bolder',
+    fontSize: '20px',
   },
   spacer: {
     flex: 1,
   },
-  avatar: { marginRight: theme.spacing(1) },
-  userInfo: { display: "flex", alignItems: "center" },
-  userName: { marginLeft: theme.spacing(1) },
-}));
+  avatar: { marginRight: '8px' },
+  userInfo: { display: 'flex', alignItems: 'center' },
+  userName: { marginLeft: '8px' },
+  h4: {
+    margin: '0',
+    fontSize: '20px',
+    fontWeight: 'bolder',
+  },
+  p: {
+    margin: 0,
+    paddingBottom: '30px',
+    color: '#ffffff66',
+  },
+};
 
 const CustomUserMenu = (props) => {
-  const classes = useStyles();
-  const userName = "Team funix";
+  const userName = 'Team funix';
   return (
     <UserMenu
       {...props}
       icon={
-        <div className={classes.userInfo}>
+        <Box sx={styles.userInfo}>
           <Avatar
             alt="User Avatar"
             src="default-avatar.jpg"
-            className={classes.avatar}
+            sx={styles.avatar}
           />
-          <Typography variant="body1" className={classes.userName}>
+          <Typography variant="body1" sx={styles.userName}>
             {userName}
           </Typography>
-        </div>
+        </Box>
       }
     >
-      <h4
-        style={{
-          margin: "0",
-          fontSize: "20px",
-          fontWeight: "bolder",
-        }}
-      >
+      <Typography variant="h4" sx={styles.h4}>
         comma.connect.user@gmail.com
-      </h4>
-      <p
-        style={{
-          margin: 0,
-          paddingBottom: "30px",
-          color: "#ffffff66",
-        }}
-      >
+      </Typography>
+      <Typography sx={styles.p}>
         google_115606701206535685614 <br /> Version: dev
-      </p>
+      </Typography>
       <MenuItemLink
         to="#"
-        style={{ marginBottom: "10px" }}
+        style={{ marginBottom: '10px' }}
         primaryText="Manage Account"
         leftIcon={<SettingsIcon />}
       />
-      <MenuItemLink to="#" primaryText="Log Out" leftIcon={<ExitToApp />} />
+      <MenuItemLink to="#" primaryText="Log Out" leftIcon={<ExitToAppIcon />} />
     </UserMenu>
   );
 };
 
 const CustomAppBar = (props) => {
-  const classes = useStyles();
-
   return (
     <AppBar
-      style={{ padding: "5px" }}
+      style={{ padding: '5px' }}
       {...props}
       userMenu={<CustomUserMenu />}
       toolbar={<></>}
     >
       <IconButton
         edge="start"
-        className={classes.menuButton}
         color="inherit"
         aria-label="open drawer"
         // onClick={props.onMenuClick}
       >
-        <img
-          style={{ height: "34px", marginRight: "10px" }}
+        <Box
+          component={'img'}
+          sx={{ height: '34px', marginRight: '10px' }}
           src="icon-512x512.png"
           alt="icon connect"
         />
       </IconButton>
-      <Typography
-        style={{ fontWeight: "bolder", fontSize: "20px" }}
-        variant="h6"
-        color="inherit"
-        className={classes.title}
-      >
+      <Typography variant="h6" color="inherit" sx={styles.title}>
         Connect
       </Typography>
-      <span className={classes.spacer} />
+      <Typography variant="span" sx={styles.spacer} />
     </AppBar>
   );
 };

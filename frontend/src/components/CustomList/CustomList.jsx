@@ -8,6 +8,51 @@ import { PostFilter } from '../listFilters/ListFilters';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 
+const styles = {
+  listContainer: {
+    padding: '0',
+    '& .RaList-content': {
+      backgroundColor: '#1B2022',
+      backgroundImage: 'none',
+
+      opacity: 1,
+      borderTop: '1px solid rgba(255, 255, 255, 0.1);',
+    },
+  },
+  dataGrid: {
+    '& .RaDatagrid-thead': {
+      display: 'none',
+    },
+    '& .RaDatagrid-row': {
+      display: 'block',
+      margin: '16px',
+      background: 'linear-gradient(to top, #1A1E20FF, #2E363A)',
+      borderRadius: '8px',
+      width: '100%',
+      overflow: 'hidden',
+      // borderBottom: 'none',
+    },
+    '& .RaDatagrid-rowCell': {
+      borderBottom: 'none',
+      display: 'block',
+      width: '100% !important',
+
+      padding: 0,
+    },
+  },
+  tableRow: {
+    '& .MuiTableCell-root': {
+      padding: '18px 32px',
+    },
+    '& .MuiBox-root': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+    },
+  },
+};
+
 const CustomList = (props) => {
   const [showModal, setShowModal] = useState(false);
   const dateFormat = (date) => {
@@ -23,44 +68,14 @@ const CustomList = (props) => {
     <>
       <Dashboard setShowModal={setShowModal} />
       <List
-        sx={{
-          // background: '#1B2022',
-          padding: '0',
-          '& .RaList-content': {
-            backgroundColor: '#1B2022',
-            backgroundImage: 'none',
-
-            opacity: 1,
-            borderTop: '1px solid rgba(255, 255, 255, 0.1);',
-          },
-        }}
-        filters={showModal && <PostFilter setShowModal={setShowModal} />}
+        sx={styles.listContainer}
+        filters={showModal ? <PostFilter setShowModal={setShowModal} /> : null}
         {...props}
       >
         <Datagrid
           isRowSelectable={() => false}
           bulkActionButtons={false}
-          sx={{
-            '& .RaDatagrid-thead': {
-              display: 'none',
-            },
-            '& .RaDatagrid-row': {
-              display: 'block',
-              margin: '16px',
-              background: 'linear-gradient(to top, #1A1E20FF, #2E363A)',
-              borderRadius: '8px',
-              width: '100%',
-              overflow: 'hidden',
-              // borderBottom: 'none',
-            },
-            '& .RaDatagrid-rowCell': {
-              borderBottom: 'none',
-              display: 'block',
-              width: '100% !important',
-
-              padding: 0,
-            },
-          }}
+          sx={styles.dataGrid}
         >
           <Table>
             <TableBody
@@ -68,19 +83,7 @@ const CustomList = (props) => {
                 margin: 0,
               }}
             >
-              <TableRow
-                sx={{
-                  '& .MuiTableCell-root': {
-                    padding: '18px 32px',
-                  },
-                  '& .MuiBox-root': {
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                  },
-                }}
-              >
+              <TableRow sx={styles.tableRow}>
                 <TableCell key={Math.random(20)}>
                   <Box>
                     <FunctionField
@@ -99,7 +102,6 @@ const CustomList = (props) => {
                     />{' '}
                     <FunctionField
                       render={(record) => `${record.distance / 1000} km`}
-                      // sx={{ color: '#ccc' }}
                     />
                   </Box>
                 </TableCell>
