@@ -1,4 +1,10 @@
-import { Datagrid, FunctionField, List, TextField } from 'react-admin';
+import {
+  Datagrid,
+  FunctionField,
+  InfiniteList,
+  List,
+  TextField,
+} from 'react-admin';
 import DriveThumbField from './DriveThumbField';
 import DriveSpeedField from './DriveSpeedField';
 import { Box, Table, TableBody, TableCell, TableRow } from '@mui/material';
@@ -7,6 +13,7 @@ import Dashboard from '../dashboard/Dashboard';
 import { PostFilter } from '../listFilters/ListFilters';
 import { useState } from 'react';
 import dayjs from 'dayjs';
+import 'dayjs/locale/vi';
 
 const styles = {
   listContainer: {
@@ -14,9 +21,12 @@ const styles = {
     '& .RaList-content': {
       backgroundColor: '#1B2022',
       backgroundImage: 'none',
-
+      paddingBottom: '12px',
       opacity: 1,
       borderTop: '1px solid rgba(255, 255, 255, 0.1);',
+    },
+    '& .css-emrlq1': {
+      padding: 0,
     },
   },
   dataGrid: {
@@ -25,10 +35,9 @@ const styles = {
     },
     '& .RaDatagrid-row': {
       display: 'block',
-      margin: '16px',
+      margin: '12px 16px',
       background: 'linear-gradient(to top, #1A1E20FF, #2E363A)',
       borderRadius: '8px',
-      width: '100%',
       overflow: 'hidden',
       // borderBottom: 'none',
     },
@@ -57,9 +66,9 @@ const CustomList = (props) => {
   const [showModal, setShowModal] = useState(false);
   const dateFormat = (date) => {
     const newDate = new Date(date);
-    const dateFormat = 'dddd, MMM D';
+    const dateFormat = 'dddd, DD, MMMM';
     const startDateObj = dayjs(newDate);
-    const startDate = startDateObj.format(dateFormat);
+    const startDate = startDateObj.locale('vi').format(dateFormat);
 
     return startDate;
   };
@@ -67,7 +76,7 @@ const CustomList = (props) => {
   return (
     <>
       <Dashboard setShowModal={setShowModal} />
-      <List
+      <InfiniteList
         sx={styles.listContainer}
         filters={showModal ? <PostFilter setShowModal={setShowModal} /> : null}
         {...props}
@@ -84,20 +93,24 @@ const CustomList = (props) => {
               }}
             >
               <TableRow sx={styles.tableRow}>
-                <TableCell key={Math.random(20)}>
+                <TableCell key={Math.random(20)} width={'25%'}>
                   <Box>
                     <FunctionField
                       source="date"
                       render={(record) => `${dateFormat(record.date)}`}
-                      sx={{ fontWeight: 'bold' }}
+                      sx={{ fontWeight: 'bold', textTransform: 'capitalize' }}
                     />
-                    <TextField source="time" />
+                    <FunctionField
+                      render={(record) =>
+                        `${record.start_time} - ${record.end_time}`
+                      }
+                    />
                   </Box>
                 </TableCell>
                 <TableCell>
                   <Box>
                     <FunctionField
-                      render={(record) => `${record.total_time / 60} min`}
+                      render={(record) => `${record.total_time / 60} phút`}
                       sx={{ fontWeight: 'bold' }}
                     />{' '}
                     <FunctionField
@@ -135,7 +148,7 @@ const CustomList = (props) => {
               {/* Speed */}
               <TableRow>
                 <TableCell colSpan={6} sx={{ padding: 0 }}>
-                  <DriveSpeedField col={20} />
+                  <DriveSpeedField col={40} />
                 </TableCell>
               </TableRow>
               {/* Thumb */}
@@ -147,7 +160,7 @@ const CustomList = (props) => {
             </TableBody>
           </Table>
         </Datagrid>
-      </List>
+      </InfiniteList>
     </>
   );
 };
