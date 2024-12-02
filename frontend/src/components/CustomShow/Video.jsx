@@ -3,13 +3,11 @@ import classes from "./CustomShow.module.css";
 import { useRecordContext } from "react-admin";
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
-const Video = forwardRef( function Video(props, ref) {
-
+const Video = forwardRef(function Video(props, ref) {
   const [currentTime, setCurrentTime] = useState(0);
 
   const record = useRecordContext();
   const videoElementRef = useRef();
-
 
   // Update the current time of the video
   const updateVideoTime = () => {
@@ -43,7 +41,7 @@ const Video = forwardRef( function Video(props, ref) {
     // set video time more 10s
     forward10s: () => {
       videoElementRef.current.currentTime += 10;
-      if(videoElementRef.current.paused) {
+      if (videoElementRef.current.paused) {
         videoElementRef.current.play();
       }
     },
@@ -51,21 +49,27 @@ const Video = forwardRef( function Video(props, ref) {
     replay10s: () => {
       videoElementRef.current.currentTime -= 10;
       // check if video is paused, then play
-      if(videoElementRef.current.paused) {
+      if (videoElementRef.current.paused) {
         videoElementRef.current.play();
       }
     },
     getDuration: () => {
       return videoElementRef.current.duration;
-    }
+    },
   }));
 
   return (
     <div className={classes.content_main_video}>
-      <video ref={videoElementRef} onTimeUpdate={updateVideoTime} autoPlay>
-        <source src={record.video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {!record && (
+        <div className={classes.content_video_placeholder}>placeholder</div>
+      )}
+
+      {record && record.video && (
+        <video ref={videoElementRef} onTimeUpdate={updateVideoTime} autoPlay>
+          <source src={record.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   );
 });
