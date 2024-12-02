@@ -1,6 +1,6 @@
-.RaAppBar-menuButton {
+/* .RaAppBar-menuButton {
   display: none !important;
-}
+} */
 .RaSidebar-fixed {
   height: 100% !important;
   background-image: linear-gradient(
@@ -33,9 +33,9 @@
 }
 
 @media screen and (max-width: 800px) {
-  .RaAppBar-menuButton {
+  /* .RaAppBar-menuButton {
     display: block !important;
-  }
+  } */
   .css-3uf7sq-MuiTypography-root {
     display: none;
   }
