@@ -25,7 +25,6 @@ const Header = ({videoRef}) => {
   };
 
   const convertToLocalDate = (date) => {
-    // Convert to Fri May 24 
     return new Date(date).toDateString().slice(0,11);
   };
 
