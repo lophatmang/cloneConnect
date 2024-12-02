@@ -47,11 +47,10 @@ const VideoPlayer = ({ videoRef }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (videoRef.current) {
-        // transform the video time to mm:ss format
-        const videoTime =
-          Math.floor(videoRef.current.getTime().toFixed(2) / 60) +
-          ":" +
-          (videoRef.current.getTime().toFixed(2) % 60).toString();
+        const videoTime = 
+        String(Math.floor(videoRef.current.getTime() / 60)).padStart(2, "0") + ":" + 
+        String(Math.floor(videoRef.current.getTime() % 60)).padStart(2, "0") + ":" + 
+        String(Math.floor((videoRef.current.getTime() % 1) * 100)).padStart(2, "0");
         setVideoTime(videoTime);
       }
     }, 500);

@@ -276,6 +276,7 @@
   font-size: 24px;
   min-width: 100px;
   max-width: 100px;
+  overflow: hidden;
 }
 
 .video_speed {
