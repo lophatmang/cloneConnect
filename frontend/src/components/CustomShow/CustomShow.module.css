@@ -274,13 +274,21 @@
 }
 .video_time {
   font-size: 24px;
+  min-width: 100px;
+  max-width: 100px;
 }
 
 .video_speed {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
+  min-height: 100% !important;
+  transform: translateY(-8px);
+}
+.video_speed_increase {
+  margin-bottom: 8px;
+
 }
 
 .video_speed_increase,
@@ -295,7 +303,6 @@
 }
 
 .video_speed_value {
-  margin-top: 8px;
   font-size: 12px;
 }
 

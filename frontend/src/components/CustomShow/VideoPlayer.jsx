@@ -49,9 +49,9 @@ const VideoPlayer = ({ videoRef }) => {
       if (videoRef.current) {
         // transform the video time to mm:ss format
         const videoTime =
-          Math.floor(videoRef.current.getTime().toFixed(1) / 60) +
+          Math.floor(videoRef.current.getTime().toFixed(2) / 60) +
           ":" +
-          (videoRef.current.getTime().toFixed(1) % 60).toString();
+          (videoRef.current.getTime().toFixed(2) % 60).toString();
         setVideoTime(videoTime);
       }
     }, 500);
