@@ -76,13 +76,19 @@ const CustomAppBar = (props) => {
       userMenu={<CustomUserMenu />}
       toolbar={
         <>
+          <Box
+            component={"img"}
+            sx={{ height: "34px" }}
+            src="logo-KoNen.png"
+            alt="icon  AI Dynamix Tracking"
+          />
           <Typography variant="h6" color="inherit" sx={styles.title}>
             <span style={{ color: "#ffc000" }}>AI</span> Dynamix Tracking
           </Typography>
         </>
       }
     >
-      <IconButton
+      {/* <IconButton
         edge="start"
         color="inherit"
         aria-label="open drawer"
@@ -94,7 +100,7 @@ const CustomAppBar = (props) => {
           src="logo-KoNen.png"
           alt="icon  AI Dynamix Tracking"
         />
-      </IconButton>
+      </IconButton> */}
 
       <Typography variant="span" sx={styles.spacer} />
     </AppBar>
