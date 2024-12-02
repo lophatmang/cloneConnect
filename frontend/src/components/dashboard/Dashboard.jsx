@@ -7,6 +7,12 @@ import "leaflet/dist/leaflet.css";
 import { useGetList } from "react-admin";
 import { AddNew } from "../AddNew/AddNew";
 import { useSearchParams } from "react-router-dom";
+import L from "leaflet";
+
+const myIcon = L.icon({
+  iconUrl: "marker-icon.png",
+  iconSize: [38, 38],
+});
 
 const Dashboard = (props) => {
   const [position, setPosition] = useState();
@@ -61,8 +67,8 @@ const Dashboard = (props) => {
                   }`}
                   attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
                 />
-                <Marker position={position}>
-                  <Popup>Your current location</Popup>
+                <Marker position={position} icon={myIcon}>
+                  <Popup>Đây là vị trí hiện tại của bạn!</Popup>
                 </Marker>
               </MapContainer>
             )}
