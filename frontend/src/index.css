@@ -19,3 +19,6 @@ main {
   align-items: center !important;
   gap: 20px;
 }
+.MuiToolbar-root.MuiToolbar-dense.css-1gcwujm {
+  display: none;
+}
