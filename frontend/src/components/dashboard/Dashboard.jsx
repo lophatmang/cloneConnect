@@ -76,7 +76,7 @@ const Dashboard = (props) => {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "20px" }}
               >
-                <h3>Demo 3X</h3>
+                <h3>Thiết bị Demo</h3>
                 {statistical && (
                   <>
                     <div style={{ textAlign: "center" }}>

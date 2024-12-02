@@ -20,7 +20,7 @@ const CustomMenu = (props) => {
     <Menu {...props}>
       <MenuItemLink
         to="/drives"
-        primaryText="Demo 3X"
+        primaryText="Thiết bị Demo"
         leftIcon={
           <FiberManualRecordIcon style={{ width: "10px", color: "#4b5559" }} />
         }
