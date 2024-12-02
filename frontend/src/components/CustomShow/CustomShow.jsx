@@ -44,7 +44,7 @@ const CustomShow = () => {
   return (
     <Show>
       <div className={classes.content}>
-        <Header videoRef={videoRef}/>
+        <Header videoRef={videoRef} />
 
         <div className={classes.content_buttons}>
           <div
@@ -61,7 +61,7 @@ const CustomShow = () => {
               className={show === "video" ? classes.inactive : ""}
               onClick={showMap}
             >
-              Map
+              Bản đồ
             </button>
           </div>
 
@@ -70,7 +70,7 @@ const CustomShow = () => {
               className={classes.content_buttons_files}
               onClick={() => setShowFilesMenu(true)}
             >
-              Files
+              Tệp
               {showFilesMenu && (
                 <div ref={filesMenuRef}>
                   <FilesMenu />
@@ -81,7 +81,7 @@ const CustomShow = () => {
               className={classes.content_buttons_info}
               onClick={() => setShowInfoMenu(true)}
             >
-              More info
+              Thông tin khác
               {showInfoMenu && (
                 <div ref={infoMenuRef}>
                   <InfoMenu toggleInfoMenu={toggleInfoMenu} />

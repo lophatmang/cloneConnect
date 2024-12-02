@@ -4,6 +4,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import { useRecordContext } from "react-admin";
 
 const InfoMenu = ({ toggleInfoMenu }) => {
+
   const record = useRecordContext();
 
   return (
@@ -21,11 +22,11 @@ const InfoMenu = ({ toggleInfoMenu }) => {
         <ContentCopyIcon />
       </li>
       <li className={classes.content_menu_item}>
-        <span>Share this route</span>
+        <span>Chia sẻ</span>
         <ShareIcon />
       </li>
       <div className={classes.content_menu_divider}></div>
-      <li className={classes.content_menu_item}>View in useradmin</li>
+      <li className={classes.content_menu_item}>Xem với quyền người quản trị</li>
     </ul>
   );
 };
