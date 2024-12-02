@@ -37,3 +37,9 @@
     display: block !important;
   }
 }
+
+@media (min-width: 0px) and (max-width: 599.95px) {
+  .css-1o7vdkn-MuiModal-root-MuiDrawer-root-RaSidebar-root .MuiPaper-root {
+    height: 100% !important;
+  }
+}

@@ -24,7 +24,10 @@ const dataProvider = {
     return httpClient(url).then(({ json }) => {
       let data = json.filter((e) => {
         let check = true;
-        if (dateStart) check = changTime(e.date) >= changTime(dateStart);
+        if (dateStart) {
+          check = changTime(e.date) >= changTime(dateStart);
+          if (!check) return;
+        }
         if (dateEnd) check = changTime(e.date) <= changTime(dateEnd);
         return check;
       });

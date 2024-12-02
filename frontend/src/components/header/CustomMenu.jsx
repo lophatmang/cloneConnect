@@ -29,8 +29,8 @@ const CustomMenu = (props) => {
         }
       />
       <MenuItemLink
-        to="#"
-        primaryText="Add new device"
+        to="/drives?show=true"
+        primaryText="Thêm thiết bị mới"
         leftIcon={
           <ControlPointIcon style={{ width: "30px", color: "#4b5559" }} />
         }
