@@ -27,6 +27,7 @@
   }
   button:disabled {
     color: #b8c0c4;
+    cursor: not-allowed;
   }
 }
 .leaflet-control-attribution {
