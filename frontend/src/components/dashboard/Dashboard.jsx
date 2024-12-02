@@ -11,7 +11,7 @@ import L from "leaflet";
 
 const myIcon = L.icon({
   iconUrl: "marker-icon.png",
-  iconSize: [38, 38],
+  iconSize: [25, 41],
 });
 
 const Dashboard = (props) => {
