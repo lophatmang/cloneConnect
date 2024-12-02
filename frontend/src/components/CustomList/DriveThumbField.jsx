@@ -1,9 +1,10 @@
-import { ImageList, ImageListItem, Stack } from '@mui/material';
+import { Box, ImageList, ImageListItem, Stack } from '@mui/material';
 import { useRecordContext } from 'react-admin';
 
 const DriveThumbField = ({ col }) => {
   const record = useRecordContext();
-  const images = record.timeline_pics;
+  const image = record.timeline_pic;
+  console.log(image);
   return record ? (
     <Stack
       direction={'row'}
@@ -15,7 +16,7 @@ const DriveThumbField = ({ col }) => {
         },
       }}
     >
-      <ImageList
+      {/* <ImageList
         sx={{
           width: '100%',
           height: 20,
@@ -37,7 +38,12 @@ const DriveThumbField = ({ col }) => {
             <img src={item} loading="lazy" />
           </ImageListItem>
         ))}
-      </ImageList>
+      </ImageList> */}
+      <Box
+        component={'img'}
+        src={image}
+        sx={{ width: '100%', height: 20, margin: 0 }}
+      />
     </Stack>
   ) : null;
 };
